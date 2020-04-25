@@ -10,6 +10,35 @@
         />
       </div>
     </div>
+
+    <div class="row mt-5" v-if="hospitalizedCases.length > 0">
+      <div class="col-md-6 mx-auto">
+        <h3>Hospitalized</h3>
+        <LineChart
+          :chartdata="hospitalizedCases"
+          :options="options"
+          labels="Hospitalized"
+        />
+      </div>
+    </div>
+
+    <div class="row mt-5" v-if="arrRecover.length > 0">
+      <div class="col-md-6 mx-auto">
+        <h3>Recovered</h3>
+        <LineChart
+          :chartdata="arrRecover"
+          :options="options"
+          labels="Recovered"
+        />
+      </div>
+    </div>
+
+    <div class="row mt-5" v-if="arrDeaths.length > 0">
+      <div class="col-md-6 mx-auto">
+        <h3>Death</h3>
+        <LineChart :chartdata="arrDeaths" :options="options" labels="Deaths" />
+      </div>
+    </div>
   </div>
 </template>
 
