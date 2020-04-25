@@ -1,12 +1,14 @@
 <template>
   <div class="container">
-    <div class="row mt-5" v-if="positiveCase.length > 0">
+    <h1 class="my-5 text-center">Covid-19 data Visualization</h1>
+    <div class="row " v-if="positiveCase.length > 0">
       <div class="col-md-6 mx-auto">
         <h3>Positive</h3>
         <LineChart
           :chartdata="positiveCase"
           :options="options"
           labels="Positive Cases"
+          :chartcolors="positiveChartColor"
         />
       </div>
     </div>
@@ -18,6 +20,7 @@
           :chartdata="hospitalizedCases"
           :options="options"
           labels="Hospitalized"
+          :chartcolors="hospitalizedChartColor"
         />
       </div>
     </div>
@@ -29,6 +32,7 @@
           :chartdata="arrRecover"
           :options="options"
           labels="Recovered"
+          :chartcolors="recoverChartColor"
         />
       </div>
     </div>
@@ -36,7 +40,12 @@
     <div class="row mt-5" v-if="arrDeaths.length > 0">
       <div class="col-md-6 mx-auto">
         <h3>Death</h3>
-        <LineChart :chartdata="arrDeaths" :options="options" labels="Deaths" />
+        <LineChart
+          :chartdata="arrDeaths"
+          :options="options"
+          labels="Deaths"
+          :chartcolors="deathChartColor"
+        />
       </div>
     </div>
   </div>
@@ -62,6 +71,30 @@ export default {
       options: {
         responsive: true,
         maintainAspectRatio: false
+      },
+      positiveChartColor: {
+        borderColor: '#077187',
+        pointBorderColor: '#0E1428',
+        pointBackgroundColor: '#AFD6AC',
+        backgroundColor: '#74A57F'
+      },
+      hospitalizedChartColor: {
+        borderColor: '#fff',
+        pointBorderColor: '#858eab',
+        pointBackgroundColor: '#858eab',
+        backgroundColor: '#260'
+      },
+      recoverChartColor: {
+        borderColor: '#fff',
+        pointBorderColor: '#0E1428',
+        pointBackgroundColor: 'grey',
+        backgroundColor: 'orange'
+      },
+      deathChartColor: {
+        borderColor: '#fff',
+        pointBorderColor: '#0E1428',
+        pointBackgroundColor: '#fff',
+        backgroundColor: 'red'
       }
     }
   },
