@@ -1,13 +1,27 @@
 <template>
-  <div>
-    App
+  <div class="container">
+    <div class="row mt-5" v-if="positiveCase.length > 0">
+      <div class="col-md-6 mx-auto">
+        <h3>Positive</h3>
+        <LineChart
+          :chartdata="positiveCase"
+          :options="options"
+          labels="Positive Cases"
+        />
+      </div>
+    </div>
   </div>
 </template>
 
 <script>
 import axios from 'axios'
 import moment from 'moment'
+import LineChart from './components/LineChart'
+
 export default {
+  components: {
+    LineChart
+  },
   data() {
     return {
       positiveCase: [],
@@ -15,7 +29,11 @@ export default {
       arrInIcu: [],
       arrInVentilators: [],
       arrRecover: [],
-      arrDeaths: []
+      arrDeaths: [],
+      options: {
+        responsive: true,
+        maintainAspectRatio: false
+      }
     }
   },
   async created() {
