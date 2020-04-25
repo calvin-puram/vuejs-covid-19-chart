@@ -1,6 +1,8 @@
-# Event List
+# Covid-19 Data Visualization Chart
 
-an application that display event information using Vuejs. Built it while learning Vue router
+an application that display information in chart using Vuejs. Built it while learning Data visualization
+
+![image](./public/imgCover.png)
 
 ## Project setup
 
